@@ -17,7 +17,11 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+
+    $httpProvider.defaults.headers.common.Accept = 'application/hal+json';
+//    $httpProvider.defaults.headers.common.Accept = 'application/json';
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -27,7 +31,15 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/sitecontent', {
+        templateUrl: 'views/sitecontent.html',
+        controller: 'SitecontentCtrl'
+      })
+      .when('/node/:nid', {
+        templateUrl: 'views/node.html',
+        controller: 'NodeCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
