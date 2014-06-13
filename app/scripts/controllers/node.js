@@ -10,9 +10,7 @@
 angular.module('d8clientApp')
   .controller('NodeCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
 
-    var nid = $routeParams.nid;
-
-    $http.get('http://d8server.local/node/' + nid).then(function(response) {
+    $http.get('http://drupal8.dev/node/' + $routeParams.nid).then(function(response) {
       var data = response.data;
       console.log('NodeCtrl GET data', data);
       $scope.data = data;

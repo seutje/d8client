@@ -1,0 +1,10 @@
+<ul ng-repeat="node in data">
+  <li>
+    <article>
+      <h2><a ng-href="#/node/{{ node.nid }}">{{ node.title }}</a></h2>
+      <div class="body" ng-bind-html="node.body">
+      </div>
+    </article>
+  </li>
+</ul>
+<h2 ng-if="!data.length">No nodes found.</h2>

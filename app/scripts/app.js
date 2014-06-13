@@ -17,10 +17,9 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
-
+  .config(function ($routeProvider, $httpProvider) {
+    // Default to HAL+JSON.
     $httpProvider.defaults.headers.common.Accept = 'application/hal+json';
-//    $httpProvider.defaults.headers.common.Accept = 'application/json';
 
     $routeProvider
       .when('/', {
@@ -31,9 +30,9 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/sitecontent', {
-        templateUrl: 'views/sitecontent.html',
-        controller: 'SitecontentCtrl'
+      .when('/nodes', {
+        templateUrl: 'views/nodes.html',
+        controller: 'NodesCtrl'
       })
       .when('/node/:nid', {
         templateUrl: 'views/node.html',
@@ -42,4 +41,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  });
