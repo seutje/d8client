@@ -19,4 +19,11 @@ angular.module('d8clientApp')
       var currentRoute = $location.path().substring(1) || 'home';
       return page.toLowerCase() === currentRoute ? 'active' : '';
     };
-}]);
+  }])
+  .directive('mainNav', function() {
+    return {
+      replace: true,
+      restrict: 'AEC',
+      templateUrl: 'views/main-nav.html'
+    };
+  });
