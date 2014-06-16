@@ -7,4 +7,5 @@
     </article>
   </li>
 </ul>
-<h2 ng-if="!data.length">No nodes found.</h2>
+<h2 ng-if="data === undefined">Loading.</h2>
+<h2 ng-if="data !== undefined && !data.length">No nodes found.</h2>
